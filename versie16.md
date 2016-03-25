@@ -716,16 +716,16 @@ Dim fout As Boolean
         End If
     End If
     'PPOP
-'    If check_berekeningen_ppop.Value = True Then
-'        If IsNumeric(dropdown_berekeningen_ppop_percentage.Value) = False Or dropdown_berekeningen_ppop_percentage.Value = "" Then
-'            dropdown_berekeningen_ppop_percentage.BackColor = vbRed
-'            MsgBox ("Het percentage uit te ruilen partnerpensioen is niet correct ingevoerd")
-'            Numeriekcheck = True
-'            Exit Function
-'        Else
-'            dropdown_berekeningen_ppop_percentage.BackColor = vbWhite
-'        End If
-'    End If
+    If check_berekeningen_ppop.Value = True Then
+        If IsNumeric(dropdown_berekeningen_ppop_percentage.Value) = False Or dropdown_berekeningen_ppop_percentage.Value = "" Then
+            dropdown_berekeningen_ppop_percentage.BackColor = vbRed
+            MsgBox ("Het percentage uit te ruilen partnerpensioen is niet correct ingevoerd")
+            Numeriekcheck = True
+            Exit Function
+        Else
+            dropdown_berekeningen_ppop_percentage.BackColor = vbWhite
+        End If
+    End If
     'laaghoog
     If check_berekeningen_laag.Value = True Then
         If option_berekeningen_laag_verschil.Value = False And option_berekeningen_laag_verhouding.Value = False Then
@@ -1066,8 +1066,8 @@ Public Sub Berekenen()
     
     'Berekeningen maken
     If Worksheets("Opgeslagen pensioenen").Range("K2") = 1 Then
-'        Worksheets("Berekeningen").Cells(2, 3) = Worksheets("Opgeslagen pensioenen").Range("L2") * 1
-'        Worksheets("Berekeningen").Cells(2, 4) = Worksheets("Opgeslagen pensioenen").Range("M2") * 1
+        Worksheets("Berekeningen").Cells(2, 3) = Worksheets("Opgeslagen pensioenen").Range("L2") * 1
+        Worksheets("Berekeningen").Cells(2, 4) = Worksheets("Opgeslagen pensioenen").Range("M2") * 1
         
         Worksheets("Berekeningen").Cells(3, 10) = Worksheets("Opgeslagen pensioenen").Range("L2") * 1
         Worksheets("Berekeningen").Cells(3, 11) = Worksheets("Opgeslagen pensioenen").Range("M2") * 1
@@ -1080,9 +1080,9 @@ Public Sub Berekenen()
     'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     
     If Worksheets("Opgeslagen pensioenen").Range("N2") = 1 Then
-'        Worksheets("Berekeningen").Cells(2, 3) = Worksheets("Opgeslagen pensioenen").Range("O2") * 1
-'        Worksheets("Berekeningen").Cells(2, 4) = Worksheets("Opgeslagen pensioenen").Range("P2") * 1
-
+        Worksheets("Berekeningen").Cells(2, 3) = Worksheets("Opgeslagen pensioenen").Range("O2") * 1
+        Worksheets("Berekeningen").Cells(2, 4) = Worksheets("Opgeslagen pensioenen").Range("P2") * 1
+    
         Worksheets("Berekeningen").Cells(14, 10) = Worksheets("Opgeslagen pensioenen").Range("O2") * 1
         Worksheets("Berekeningen").Cells(14, 11) = Worksheets("Opgeslagen pensioenen").Range("P2") * 1
         
@@ -1091,16 +1091,9 @@ Public Sub Berekenen()
     End If
     
     'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    'PP-OP
+    
     If Worksheets("Opgeslagen pensioenen").Range("V2") = 1 Then
-        If Worksheets("Opgeslagen pensioenen").Range("K2") = 1 Then
-            Worksheets("Berekeningen").Cells(2, 3) = Worksheets("Opgeslagen pensioenen").Range("L2") * 1
-            Worksheets("Berekeningen").Cells(2, 4) = Worksheets("Opgeslagen pensioenen").Range("M2") * 1
-            Worksheets("Berekeningen").Cells(6, 1) = Worksheets("Berekeningen").Cells(12, 2)
-            Worksheets("Berekeningen").Cells(6, 2) = Worksheets("Berekeningen").Cells(13, 2)
-        ElseIf Worksheets("Opgeslagen pensioenen").Range("N2") = 1 Then
-            Worksheets("Berekeningen").Cells(2, 3) = Worksheets("Opgeslagen pensioenen").Range("O2") * 1
-            Worksheets("Berekeningen").Cells(2, 4) = Worksheets("Opgeslagen pensioenen").Range("P2") * 1
+        If Worksheets("Opgeslagen pensioenen").Range("K2") = 1 Or Worksheets("Opgeslagen pensioenen").Range("N2") = 1 Then
             Worksheets("Berekeningen").Cells(6, 1) = Worksheets("Berekeningen").Cells(12, 2)
             Worksheets("Berekeningen").Cells(6, 2) = Worksheets("Berekeningen").Cells(13, 2)
         End If
@@ -1112,31 +1105,19 @@ Public Sub Berekenen()
     End If
     
     'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    'OP-PP
+    
     If Worksheets("Opgeslagen pensioenen").Range("Q2") = 1 Then
-        If Worksheets("Opgeslagen pensioenen").Range("K2") = 1 Then
-            Worksheets("Berekeningen").Cells(2, 3) = Worksheets("Opgeslagen pensioenen").Range("L2") * 1
-            Worksheets("Berekeningen").Cells(2, 4) = Worksheets("Opgeslagen pensioenen").Range("M2") * 1
-            Worksheets("Berekeningen").Cells(6, 1) = Worksheets("Berekeningen").Cells(12, 2)
-            Worksheets("Berekeningen").Cells(6, 2) = Worksheets("Berekeningen").Cells(13, 2)
-        ElseIf Worksheets("Opgeslagen pensioenen").Range("N2") = 1 Then
-            Worksheets("Berekeningen").Cells(2, 3) = Worksheets("Opgeslagen pensioenen").Range("O2") * 1
-            Worksheets("Berekeningen").Cells(2, 4) = Worksheets("Opgeslagen pensioenen").Range("P2") * 1
+        If Worksheets("Opgeslagen pensioenen").Range("K2") = 1 Or Worksheets("Opgeslagen pensioenen").Range("N2") = 1 Then
             Worksheets("Berekeningen").Cells(6, 1) = Worksheets("Berekeningen").Cells(12, 2)
             Worksheets("Berekeningen").Cells(6, 2) = Worksheets("Berekeningen").Cells(13, 2)
         End If
                 
         If Worksheets("Opgeslagen pensioenen").Range("R2") = 1 Then
-            Worksheets("Berekeningen").Cells(27, 6) = Worksheets("Berekeningen").Cells(2, 3)
-            Worksheets("Berekeningen").Cells(27, 7) = Worksheets("Berekeningen").Cells(2, 4)
             Worksheets("Berekeningen").Cells(29, 6) = Worksheets("Opgeslagen pensioenen").Range("S2") / 100
             Worksheets("Berekeningen").Cells(12, 2) = Worksheets("Berekeningen").Cells(32, 6)
             Worksheets("Berekeningen").Cells(13, 2) = Worksheets("Berekeningen").Cells(33, 6)
         End If
-        
         If Worksheets("Opgeslagen pensioenen").Range("T2") = 1 Then
-            Worksheets("Berekeningen").Cells(14, 6) = Worksheets("Berekeningen").Cells(2, 3)
-            Worksheets("Berekeningen").Cells(14, 7) = Worksheets("Berekeningen").Cells(2, 4)
             Worksheets("Berekeningen").Cells(16, 6) = Worksheets("Opgeslagen pensioenen").Range("U2") / 100
             Worksheets("Berekeningen").Cells(12, 2) = Worksheets("Berekeningen").Cells(18, 6)
             Worksheets("Berekeningen").Cells(13, 2) = Worksheets("Berekeningen").Cells(19, 6)
@@ -1145,7 +1126,7 @@ Public Sub Berekenen()
     End If
     
     'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    'AOW-gat
+
     If Worksheets("Opgeslagen pensioenen").Range("AM2") = 1 Then
         Worksheets("Berekeningen").Cells(6, 1) = Worksheets("Berekeningen").Cells(12, 2)
         Worksheets("Berekeningen").Cells(6, 2) = Worksheets("Berekeningen").Cells(13, 2)
@@ -1158,31 +1139,20 @@ Public Sub Berekenen()
     End If
                 
     'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    'Hoog-laag
+    
     If Worksheets("Opgeslagen pensioenen").Range("Y2") = 1 Then
-        If Worksheets("Opgeslagen pensioenen").Range("V2") = 1 Or Worksheets("Opgeslagen pensioenen").Range("Q2") = 1 Then
-            Worksheets("Berekeningen").Cells(6, 1) = Worksheets("Berekeningen").Cells(12, 2)
-            Worksheets("Berekeningen").Cells(6, 2) = Worksheets("Berekeningen").Cells(13, 2)
-        ElseIf Worksheets("Opgeslagen pensioenen").Range("K2") = 1 Then 'vervroegen
-            Worksheets("Berekeningen").Cells(2, 3) = Worksheets("Opgeslagen pensioenen").Range("L2") * 1
-            Worksheets("Berekeningen").Cells(2, 4) = Worksheets("Opgeslagen pensioenen").Range("M2") * 1
-            Worksheets("Berekeningen").Cells(6, 1) = Worksheets("Berekeningen").Cells(12, 2)
-            Worksheets("Berekeningen").Cells(6, 2) = Worksheets("Berekeningen").Cells(13, 2)
-        ElseIf Worksheets("Opgeslagen pensioenen").Range("N2") = 1 Then 'uitstellen
-            Worksheets("Berekeningen").Cells(2, 3) = Worksheets("Opgeslagen pensioenen").Range("O2") * 1
-            Worksheets("Berekeningen").Cells(2, 4) = Worksheets("Opgeslagen pensioenen").Range("P2") * 1
+        If Worksheets("Opgeslagen pensioenen").Range("V2") = 1 Or Worksheets("Opgeslagen pensioenen").Range("K2") = 1 Or Worksheets("Opgeslagen pensioenen").Range("N2") = 1 Or Worksheets("Opgeslagen pensioenen").Range("Q2") = 1 Then
             Worksheets("Berekeningen").Cells(6, 1) = Worksheets("Berekeningen").Cells(12, 2)
             Worksheets("Berekeningen").Cells(6, 2) = Worksheets("Berekeningen").Cells(13, 2)
         End If
         
         If Worksheets("Opgeslagen pensioenen").Range("AB2") = 1 Then
-                Worksheets("Berekeningen").Cells(26, 10) = Worksheets("Opgeslagen pensioenen").Range("Z2") * 1
-                Worksheets("Berekeningen").Cells(26, 11) = Worksheets("Opgeslagen pensioenen").Range("AA2") * 1
-                Worksheets("Berekeningen").Cells(27, 10) = Worksheets("Opgeslagen pensioenen").Range("AC2") * 1
-                Worksheets("Berekeningen").Cells(14, 2) = Worksheets("Berekeningen").Cells(32, 10)
-                Worksheets("Berekeningen").Cells(15, 2) = Worksheets("Berekeningen").Cells(33, 10)
+            Worksheets("Berekeningen").Cells(26, 10) = Worksheets("Opgeslagen pensioenen").Range("Z2") * 1
+            Worksheets("Berekeningen").Cells(26, 11) = Worksheets("Opgeslagen pensioenen").Range("AA2") * 1
+            Worksheets("Berekeningen").Cells(27, 10) = Worksheets("Opgeslagen pensioenen").Range("AC2") * 1
+            Worksheets("Berekeningen").Cells(14, 2) = Worksheets("Berekeningen").Cells(32, 10)
+            Worksheets("Berekeningen").Cells(15, 2) = Worksheets("Berekeningen").Cells(33, 10)
         End If
-        
         If Worksheets("Opgeslagen pensioenen").Range("AD2") = 1 Then
             Worksheets("Berekeningen").Cells(3, 14) = Worksheets("Opgeslagen pensioenen").Range("Z2") * 1
             Worksheets("Berekeningen").Cells(3, 15) = Worksheets("Opgeslagen pensioenen").Range("AA2") * 1
@@ -1197,30 +1167,19 @@ Public Sub Berekenen()
     End If
         
     'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    'Laag-Hoog
+    
     If Worksheets("Opgeslagen pensioenen").Range("AF2") = 1 Then
-        If Worksheets("Opgeslagen pensioenen").Range("V2") = 1 Or Worksheets("Opgeslagen pensioenen").Range("Q2") = 1 Then
-            Worksheets("Berekeningen").Cells(6, 1) = Worksheets("Berekeningen").Cells(12, 2)
-            Worksheets("Berekeningen").Cells(6, 2) = Worksheets("Berekeningen").Cells(13, 2)
-        ElseIf Worksheets("Opgeslagen pensioenen").Range("K2") = 1 Then 'vervroegen
-            Worksheets("Berekeningen").Cells(2, 3) = Worksheets("Opgeslagen pensioenen").Range("L2") * 1
-            Worksheets("Berekeningen").Cells(2, 4) = Worksheets("Opgeslagen pensioenen").Range("M2") * 1
-            Worksheets("Berekeningen").Cells(6, 1) = Worksheets("Berekeningen").Cells(12, 2)
-            Worksheets("Berekeningen").Cells(6, 2) = Worksheets("Berekeningen").Cells(13, 2)
-        ElseIf Worksheets("Opgeslagen pensioenen").Range("N2") = 1 Then 'uitstellen
-            Worksheets("Berekeningen").Cells(2, 3) = Worksheets("Opgeslagen pensioenen").Range("O2") * 1
-            Worksheets("Berekeningen").Cells(2, 4) = Worksheets("Opgeslagen pensioenen").Range("P2") * 1
+        If Worksheets("Opgeslagen pensioenen").Range("V2") = 1 Or Worksheets("Opgeslagen pensioenen").Range("K2") = 1 Or Worksheets("Opgeslagen pensioenen").Range("N2") = 1 Or Worksheets("Opgeslagen pensioenen").Range("Q2") = 1 Then
             Worksheets("Berekeningen").Cells(6, 1) = Worksheets("Berekeningen").Cells(12, 2)
             Worksheets("Berekeningen").Cells(6, 2) = Worksheets("Berekeningen").Cells(13, 2)
         End If
         
         If Worksheets("Opgeslagen pensioenen").Range("AI2") = 1 Then
-'            If Worksheets("Opgeslagen pensioenen").Range("K2") = 1 Then
-                Worksheets("Berekeningen").Cells(3, 18) = Worksheets("Opgeslagen pensioenen").Range("AG2") * 1
-                Worksheets("Berekeningen").Cells(3, 19) = Worksheets("Opgeslagen pensioenen").Range("AH2") * 1
-                Worksheets("Berekeningen").Cells(4, 18) = Worksheets("Opgeslagen pensioenen").Range("AJ2") * 1
-                Worksheets("Berekeningen").Cells(14, 2) = Worksheets("Berekeningen").Cells(12, 18)
-                Worksheets("Berekeningen").Cells(15, 2) = Worksheets("Berekeningen").Cells(11, 18)
+            Worksheets("Berekeningen").Cells(3, 18) = Worksheets("Opgeslagen pensioenen").Range("AG2") * 1
+            Worksheets("Berekeningen").Cells(3, 19) = Worksheets("Opgeslagen pensioenen").Range("AH2") * 1
+            Worksheets("Berekeningen").Cells(4, 18) = Worksheets("Opgeslagen pensioenen").Range("AJ2") * 1
+            Worksheets("Berekeningen").Cells(14, 2) = Worksheets("Berekeningen").Cells(12, 18)
+            Worksheets("Berekeningen").Cells(15, 2) = Worksheets("Berekeningen").Cells(11, 18)
         End If
         
         If Worksheets("Opgeslagen pensioenen").Range("AK2") = 1 Then
